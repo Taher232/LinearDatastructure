@@ -1,0 +1,36 @@
+ALGORITHM sum_of_all_distinct_Solution1
+VAR
+ set1:ARRAY_OF INTEGER[4]:=[3, 1, 7, 9];
+ set2:ARRAY_OF INTEGER[5]:=[2, 4, 1, 9, 3];
+ i,j:INTEGER;
+ sum:INTEGER:=0;
+ verif:BOOLEAN;
+BEGIN
+// 1st array verification
+   FOR i FROM 0 TO set1.length-1 STEP 1  DO
+   verif:=false;
+       FOR j FROM 0 TO set2.length-1 STEP 1  DO
+           IF (set1[i]=set2[j]) THEN
+            verif:=true; 
+           END_IF
+       END_FOR
+       IF (verif=false) THEN 
+       sum:=sum+set1[i];
+           
+       END_IF
+   END_FOR
+// 2nd array verification
+   FOR i FROM 0 TO set2.length-1 STEP 1  DO
+   verif:=false;
+       FOR j FROM 0 TO set1.length-1 STEP 1  DO
+           IF (set2[i]=set1[j]) THEN
+            verif:=true; 
+           END_IF
+       END_FOR
+       IF (verif=false) THEN 
+       sum:=sum+set2[i];
+           
+       END_IF
+   END_FOR
+   write("Sum of the distinct elements= ");
+   write(sum);
